@@ -3,8 +3,8 @@ public class SuperArray{
   private int size;
 
   public SuperArray(){
-    size = 1;
-    String[] data = new String[10];
+    size = 0;
+    data = new String[10];
   }
 
   public int size(){
@@ -21,7 +21,7 @@ public class SuperArray{
   }
 
   public String get(int index){
-    return data[index];
+      return data[index];
   }
 
   public String set(int index, String element){
@@ -30,7 +30,7 @@ public class SuperArray{
   }
 
   private void resize(){
-    String[] newArray = new String[size*2];
+    String[] newArray = new String[data.length*2];
     for (int i=0; i<data.length; i++){
       newArray[i] = data[i];
     }
