@@ -3,7 +3,7 @@ public class SuperArray{
   private int size;
 
   public SuperArray(){
-    size = 0;
+    size = 1;
     String[] data = new String[10];
   }
 
@@ -12,8 +12,8 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    if (size+1 == data.length){
-      data.resize();
+    if ((data != null) && (size >= data.length)){
+      resize();
     }
     data[size] = element;
     size ++;
