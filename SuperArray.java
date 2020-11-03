@@ -7,6 +7,11 @@ public class SuperArray{
     data = new String[10];
   }
 
+  public SuperArray(int InitialCapacity){
+    size = 0;
+    data = new String[InitialCapacity];
+  }
+
   public int size(){
     return size;
   }
@@ -59,4 +64,26 @@ public class SuperArray{
     }
     return isthereS;
   }
+
+  public void clear(){
+    for (int i=0; i<size; i++){
+      data[i] = null;
+    }
+    size = 0;
+  }
+
+  public void add(int index, String element){
+    if (size>=data.length){
+      resize();
+    }
+    String temp = "";
+    String temp2 = element;
+    size ++;
+    for (int i=index; i<size; i++){
+      temp = data[i];
+      data[i] = temp2;
+      temp2 = temp;
+    }
+  }
+
 }
