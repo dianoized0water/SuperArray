@@ -12,7 +12,7 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    if ((data != null) && (size >= data.length)){
+    if ((element != null) && (size >= data.length)){
       resize();
     }
     data[size] = element;
@@ -50,7 +50,7 @@ public class SuperArray{
     return (String) ("[" + string + "]");
   }
 
-  public boolean containt(String s){
+  public boolean contains(String s){
     boolean isthereS = false;
     for (int i=0; i<size; i++){
       if (data[i].equals(s)){
