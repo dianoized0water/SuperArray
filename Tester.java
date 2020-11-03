@@ -25,6 +25,7 @@ public class Tester {
         err += check("b.add", b.toString(), "[*, *, o, *, *]");
         b.remove(2);
         err += check ("b.remove(2)", b.toString(), "[*, *, *, *]");
+        err += check ("b.indexOf(o)", b.indexOf("o"), -1);
 
         if (err == 0) System.out.println("All good!");
         else if (err == 1) System.out.println("Uh oh... 1 error found.");
