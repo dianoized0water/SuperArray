@@ -37,4 +37,26 @@ public class SuperArray{
     }
     data = newArray;
   }
+
+  public boolean isEmpty(){
+    return (size==0);
+  }
+
+  public String toString(){
+    String string = "" + data[0];
+    for (int i=1; i<size; i++){
+      String += ", " + data[i];
+    }
+    return (String) ("[" + string + "]");
+  }
+
+  public boolean containt(String s){
+    boolean isthereS = false;
+    for (int i=0; i<size; i++){
+      if data[i].equals(s){
+        isthereS = true;
+      }
+    }
+    return isthereS;
+  }
 }
