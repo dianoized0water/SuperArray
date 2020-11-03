@@ -45,7 +45,7 @@ public class SuperArray{
   public String toString(){
     String string = "" + data[0];
     for (int i=1; i<size; i++){
-      String += ", " + data[i];
+      string += ", " + data[i];
     }
     return (String) ("[" + string + "]");
   }
@@ -53,7 +53,7 @@ public class SuperArray{
   public boolean containt(String s){
     boolean isthereS = false;
     for (int i=0; i<size; i++){
-      if data[i].equals(s){
+      if (data[i].equals(s)){
         isthereS = true;
       }
     }
