@@ -48,6 +48,9 @@ public class SuperArray{
   }
 
   public String toString(){
+    if (size==0) {
+      return "[]";
+    }
     String string = "" + data[0];
     for (int i=1; i<size; i++){
       string += ", " + data[i];
@@ -92,7 +95,7 @@ public class SuperArray{
     for (int i=index; i<size; i++){
       data[i] = data[i+1];
     }
-    data[size+1] = null;
+    data[size] = null;
     return string;
   }
 
@@ -112,4 +115,5 @@ public class SuperArray{
     }
     return array;
   }
+
 }
