@@ -10,6 +10,18 @@ public class Demo{
     }
   }
 
+  public static SuperArray findOverlap(SuperArray a, SuperArray b){
+    SuperArray overlap = new SuperArray();
+    String[] c = a.toArray();
+    for (int i=0; i<a.size(); i++){
+      if (b.contains(c[i])){
+        overlap.add(c[i]);
+      }
+    }
+    removeDuplicates(overlap);
+    return overlap;
+  }
+
   public static void main(String[]args){
     SuperArray words = new SuperArray();
     //grouped to save vertical space
@@ -17,8 +29,11 @@ public class Demo{
     words.add("una");    words.add("ebi");     words.add("kani");    words.add("una");
     words.add("una");    words.add("ebi");     words.add("toro");
 
-    System.out.println(words);
+    SuperArray newwords = words;
+    System.out.println(newwords);
     removeDuplicates(words);
     System.out.println(words);
+    System.out.println(findOverlap(words, newwords));
+    System.out.println(findOverlap(newwords, words));
   }
 }
