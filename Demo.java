@@ -22,18 +22,33 @@ public class Demo{
     return overlap;
   }
 
+  public static SuperArray zip(SuperArray a, SuperArray b){
+    int x = Math.min(a.size(), b.size());
+    String[] c = a.toArray();
+    String[] d = b.toArray();
+    SuperArray zipped = new SuperArray();
+    for (int i=0; i<x; i++){
+      zipped.add(c[i]);
+      zipped.add(d[i]);
+    }
+    if (a.size()>x){
+      for (int i=x; i<a.size(); i++){
+        zipped.add(c[i]);
+      }
+    }
+    else {
+      for (int i=x; i<b.size(); i++){
+        zipped.add(d[i]);
+      }
+    }
+    return zipped; 
+  }
+
   public static void main(String[]args){
     SuperArray words = new SuperArray();
     //grouped to save vertical space
     words.add("kani");   words.add("uni");     words.add("ebi");     words.add("una");
     words.add("una");    words.add("ebi");     words.add("kani");    words.add("una");
     words.add("una");    words.add("ebi");     words.add("toro");
-
-    SuperArray newwords = words;
-    System.out.println(newwords);
-    removeDuplicates(words);
-    System.out.println(words);
-    System.out.println(findOverlap(words, newwords));
-    System.out.println(findOverlap(newwords, words));
   }
 }

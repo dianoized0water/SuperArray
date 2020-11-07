@@ -115,4 +115,27 @@ public class SuperArray{
     }
     return array;
   }
+
+  public int lastIndexOf(String value){
+    int a = -1;
+    for (int i=0; i<size; i++){
+      if (data[i].equals(value)){
+        a = Math.max(a, i);
+      }
+    }
+    return a;
+  }
+
+  public boolean equals(SuperArray other){
+    if (other.size() != this.size()){
+      return false;
+    }
+    String[] otherArray = other.toArray();
+    for (int i=0; i<size; i++){
+      if (!(otherArray[i].equals(data[i]))){
+        return false;
+      }
+    }
+    return true;
+  }
 }
