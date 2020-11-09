@@ -8,6 +8,9 @@ public class SuperArray{
   }
 
   public SuperArray(int InitialCapacity){
+    if (InitialCapacity < 0){
+      throw new IllegalArgumentException("Value of Initial Capacity "+InitialCapacity+ " should be >=0");
+    }
     size = 0;
     data = new String[InitialCapacity];
   }
@@ -26,10 +29,16 @@ public class SuperArray{
   }
 
   public String get(int index){
-      return data[index];
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Value of index "+index+" does not exist for this SuperArray");
+    }
+    return data[index];
   }
 
   public String set(int index, String element){
+    if (index < 0 || index >= size()){
+      throw new IndexOutOfBoundsException("Value of index "+index+" does not exist for this SuperArray");
+    }
     String replaced = data[index];
     data[index] = element;
     return replaced;
@@ -76,6 +85,9 @@ public class SuperArray{
   }
 
   public void add(int index, String element){
+    if (index < 0 || index > size()){
+      throw new IndexOutOfBoundsException("Value of index "+index+" does not exist for this SuperArray");
+    }
     if (size>=data.length){
       resize();
     }
@@ -90,6 +102,9 @@ public class SuperArray{
   }
 
   public String remove(int index){
+    if (index < 0 || index>= size()){
+      throw new IndexOutOfBoundsException("Value of index "+index+" does not exist for this SuperArray");
+    }
     String string = data[index];
     size = size-1;
     for (int i=index; i<size; i++){
